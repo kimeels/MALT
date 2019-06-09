@@ -18,10 +18,10 @@ sns.set_palette(color_palette)
 
 
 ###############################################################################
-#                               GP Functions                                  #
+#                          Interpolator Functions                             #
 ###############################################################################
 
-def get_gp(lightcurve):
+def get_gp(lightcurve, t0, timescale, sample_size ):
     """
         Returns a Gaussian Process (george) object marginalised on the data
         in file.
@@ -29,6 +29,14 @@ def get_gp(lightcurve):
         Param
         ------
         lightcurve : Lightcurve object
+            An instance of the Lightcurve class.
+        t0: float
+            Initial time to start sampling.
+        timescale: float
+            The total length of the interpolated lightcurve.
+        sample_size: int
+            Number of data points in interpolated lightcurve.
+
 
     """
     root_dir = "./saved/gps/"
@@ -252,7 +260,11 @@ def get_gp(lightcurve):
 
         pickle.dump(gp, open(save_loc, 'wb'))
 
-    return gp
+
+    xsample = np.linspace(t0,t0+timescale,sample_size)
+    ysample = gp.sample_conditional(lightcurve.flux,xsample)
+
+    return ysample
 
 
 def plot_gp(lightcurve, gp_error = True, show = True, save = False):
@@ -262,6 +274,8 @@ def plot_gp(lightcurve, gp_error = True, show = True, save = False):
         Params
         -------
 
+        lightcurve: Lightcurve object
+            An instance of the Lightcurve class
         gp_error: boolean
             2 sigma error bounds.
         show: boolean
@@ -293,8 +307,8 @@ def plot_gp(lightcurve, gp_error = True, show = True, save = False):
 
 
         t = np.linspace(np.min(x), np.max(x), 500)
-        mu, cov = gp.predict(y, t)
-        std = np.sqrt(np.diag(cov))
+        mu, var = gp.predict(y, t,return_var=True)
+
 
         fs = 17
         pl.figure(figsize=(12,8))
@@ -316,7 +330,7 @@ def plot_gp(lightcurve, gp_error = True, show = True, save = False):
             tick.label.set_fontsize(fs)
 
         if gp_error == True:
-            pl.fill_between(t, mu - 2*np.sqrt(std**2), mu + 2*np.sqrt(std**2),
+            pl.fill_between(t, mu - np.sqrt(var), mu + np.sqrt(var),
                             color=.9*np.array(color_palette[4]), alpha=0.35)
 
         if show == True:
