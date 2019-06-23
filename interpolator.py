@@ -54,7 +54,7 @@ def get_gp(lightcurve, t0, timescale, sample_size ):
 
     if from_save == True:
         gp = pickle.load(open(root_dir + filename+".gpsave", 'rb'))
-        lc_logger.info("Func get_gp() used saved gp from: "+root_dir)
+        lc_logger.info("Func get_gp() used saved gp: "+root_dir + filename+".gpsave")
 
     else:
         lc_logger.info("Func get_gp() created new gp and saved it to: "
@@ -243,7 +243,7 @@ def get_gp(lightcurve, t0, timescale, sample_size ):
 
             return gp,results
 
-        data = [lightcurve.t, lightcurve.flux, lightcurve.flux_err]
+        data = [lightcurve.time, lightcurve.flux, lightcurve.flux_err]
 
         gp1,results1  = kernel2(data)
         gp2,results2 = kernel3(data)
@@ -267,77 +267,77 @@ def get_gp(lightcurve, t0, timescale, sample_size ):
     return ysample
 
 
-def plot_gp(lightcurve, gp_error = True, show = True, save = False):
-    """
-        Plots a lightcurve with overlaid GP
-
-        Params
-        -------
-
-        lightcurve: Lightcurve object
-            An instance of the Lightcurve class
-        gp_error: boolean
-            2 sigma error bounds.
-        show: boolean
-            Prints the plot to screen.
-        save: boolean
-            Saves plot to location save_loc.
-        save_loc: str
-            Name of plot and save location.
-
-
-    """
-    if lightcurve.interp == np.nan:
-        print("No gp available. Please run gp_reg() first.")
-        lc_logger.warning("Attempted to plot gp with no gp defined")
-        return
-    else:
-
-        root_dir = "./saved/gp_plots/"
-        if os.path.isdir(root_dir) == False:
-                os.makedirs(root_dir)
-                lc_logger.info("Func get_gp() made directory "+root_dir)
-
-        save_name = root_dir+lightcurve.filename+"_gp.pdf"
-        lc_logger.info("Plotted gp for "+lightcurve.filename)
-
-        gp = lightcurve.interp
-
-        x,y,err = lightcurve.t, lightcurve.flux, lightcurve.flux_err
-
-
-        t = np.linspace(np.min(x), np.max(x), 500)
-        mu, var = gp.predict(y, t,return_var=True)
-
-
-        fs = 17
-        pl.figure(figsize=(12,8))
-        pl.errorbar(x,y,err,fmt='o',color = '#808080',capsize=5,capthick=1,
-                    label = 'Data')
-        pl.plot(t,mu, color = np.array(color_palette[4]),linewidth=4,
-                label = 'GP mean')
-        pl.title(lightcurve.filename+'_gp',fontsize=fs)
-
-        sns.despine()
-        pl.legend(fontsize = 17)
-        pl.xlabel("Time   [Days]",fontsize = fs, fontweight = 'bold')
-        pl.ylabel("Flux   [Jy]",fontsize = fs, fontweight = 'bold')
-
-        ax = pl.gca()
-        for tick in ax.xaxis.get_major_ticks():
-            tick.label.set_fontsize(fs)
-        for tick in ax.yaxis.get_major_ticks():
-            tick.label.set_fontsize(fs)
-
-        if gp_error == True:
-            pl.fill_between(t, mu - np.sqrt(var), mu + np.sqrt(var),
-                            color=.9*np.array(color_palette[4]), alpha=0.35)
-
-        if show == True:
-            pl.show()
-
-        if save == True:
-            pl.savefig(save_name,bbox_inches='tight')
-            lc_logger.info("Saved plot of gp to "+save_name)
-
-        return
+# def plot_gp(lightcurve, gp_error = True, show = True, save = False):
+#     """
+#         Plots a lightcurve with overlaid GP
+#
+#         Params
+#         -------
+#
+#         lightcurve: Lightcurve object
+#             An instance of the Lightcurve class
+#         gp_error: boolean
+#             2 sigma error bounds.
+#         show: boolean
+#             Prints the plot to screen.
+#         save: boolean
+#             Saves plot to location save_loc.
+#         save_loc: str
+#             Name of plot and save location.
+#
+#
+#     """
+#     if lightcurve.interp_flux == np.nan:
+#         print("No gp available. Please run gp_reg() first.")
+#         lc_logger.warning("Attempted to plot gp with no gp defined")
+#         return
+#     else:
+#
+#         root_dir = "./saved/gp_plots/"
+#         if os.path.isdir(root_dir) == False:
+#                 os.makedirs(root_dir)
+#                 lc_logger.info("Func get_gp() made directory "+root_dir)
+#
+#         save_name = root_dir+lightcurve.filename+"_gp.pdf"
+#         lc_logger.info("Plotted gp for "+lightcurve.filename)
+#
+#         gp = lightcurve.interp_flux
+#
+#         x,y,err = lightcurve.time, lightcurve.flux, lightcurve.flux_err
+#
+#
+#         t = np.linspace(np.min(x), np.max(x), 500)
+#         mu, var = gp.predict(y, t,return_var=True)
+#
+#
+#         fs = 17
+#         pl.figure(figsize=(12,8))
+#         pl.errorbar(x,y,err,fmt='o',color = '#808080',capsize=5,capthick=1,
+#                     label = 'Data')
+#         pl.plot(t,mu, color = np.array(color_palette[4]),linewidth=4,
+#                 label = 'GP mean')
+#         pl.title(lightcurve.filename+'_gp',fontsize=fs)
+#
+#         sns.despine()
+#         pl.legend(fontsize = 17)
+#         pl.xlabel("Time   [Days]",fontsize = fs, fontweight = 'bold')
+#         pl.ylabel("Flux   [Jy]",fontsize = fs, fontweight = 'bold')
+#
+#         ax = pl.gca()
+#         for tick in ax.xaxis.get_major_ticks():
+#             tick.label.set_fontsize(fs)
+#         for tick in ax.yaxis.get_major_ticks():
+#             tick.label.set_fontsize(fs)
+#
+#         if gp_error == True:
+#             pl.fill_between(t, mu - np.sqrt(var), mu + np.sqrt(var),
+#                             color=.9*np.array(color_palette[4]), alpha=0.35)
+#
+#         if show == True:
+#             pl.show()
+#
+#         if save == True:
+#             pl.savefig(save_name,bbox_inches='tight')
+#             lc_logger.info("Saved plot of gp to "+save_name)
+#
+#         return

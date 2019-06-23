@@ -31,4 +31,6 @@ def get_wavelet_feature(lightcurve):
     npoints=len(coeffs[0, 0, :])
     c=coeffs.reshape(mlev*2, npoints).T
     wavout = c.flatten('F')
+    lc_logger.info("Func get_wavelet_feature() extracted features from lightcurve "
+                    + lightcurve.filename)
     return wavout
