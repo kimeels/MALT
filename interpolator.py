@@ -21,7 +21,7 @@ sns.set_palette(color_palette)
 #                          Interpolator Functions                             #
 ###############################################################################
 
-def get_gp(lightcurve, t0, timescale, sample_size ):
+def get_gp(lightcurve, t0, obs_time, sample_size ):
     """
         Returns a Gaussian Process (george) object marginalised on the data
         in file.
@@ -32,7 +32,7 @@ def get_gp(lightcurve, t0, timescale, sample_size ):
             An instance of the Lightcurve class.
         t0: float
             Initial time to start sampling.
-        timescale: float
+        obs_time: float
             The total length of the interpolated lightcurve.
         sample_size: int
             Number of data points in interpolated lightcurve.
@@ -261,7 +261,7 @@ def get_gp(lightcurve, t0, timescale, sample_size ):
         pickle.dump(gp, open(save_loc, 'wb'))
 
 
-    xsample = np.linspace(t0,t0+timescale,sample_size)
+    xsample = np.linspace(t0,t0+obs_time,sample_size)
     ysample = gp.sample_conditional(lightcurve.flux,xsample)
 
     return ysample
