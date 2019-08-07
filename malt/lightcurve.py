@@ -3,7 +3,7 @@ from .interpolator import*
 from .feature_extraction import*
 
 class Lightcurve:
-    def __init__(self, filepath, interpolate = True,
+    def __init__(self, filepath, interpolate = False,
                  interp_func = get_gp, ini_t = 'rand', obs_time = 8/24,
                  sample_size = 100, obj_type = None):
         """
@@ -41,8 +41,8 @@ class Lightcurve:
             filename = os.path.basename(filepath)
             self.filename = filename
 
-            self.interp_flux = [np.nan]
-            self.features = [np.nan]
+            self._did_interpolation = False
+            self._did_feat_extraction = False
 
         except IOError as io:
             print('An error occured trying to read the file.')
@@ -115,7 +115,7 @@ class Lightcurve:
         return x, y, err, ra_dec, typ
 
     def interpolate(self,interp_func = get_gp, ini_t = 'rand', obs_time = 8/24,
-                    sample_size = 100):
+                    sample_size = 100, aug_num = 1):
         """
             Interpolates the given lightcurve with assigned interpolation function
 
@@ -131,13 +131,15 @@ class Lightcurve:
                 The total length of the interpolated lightcurve.
             sample_size: int
                 Number of data points in interpolated lightcurve.
+            aug_num: int
+                Number of lightcurves to augment to.
 
         """
         if (self.time[-1] - self.time[0]) < obs_time:
             print('Lightcurve '+self.filename+' is too short for requested obs_time')
             lc_logger.info('Lightcurve '+self.filename+' is too short for requested obs_time')
 
-        elif np.isnan(self.interp_flux[0]):
+        elif self._did_interpolation == False:
             if ini_t == 'rand':
                 t0 = np.random.uniform(np.min(self.time),np.max(self.time)-obs_time)
             elif ini_t == 'start':
@@ -146,13 +148,15 @@ class Lightcurve:
                 t0 = float(ini_t)
 
             try:
-                interp = interp_func(self, t0, obs_time, sample_size)
+                interp = interp_func(self, t0, obs_time, sample_size,aug_num)
                 self.interp_flux = interp
+                self._did_interpolation = True
             except Exception as e:
                 print("An error has occured while performing interpolation on "+self.filename)
                 lc_logger.exception("Exception occurred while performing interpolation on "+self.filename)
         else:
             lc_logger.info(self.filename + " is already interpolated")
+            self._did_interpolation = True
 
     def extract_features(self, feat_ex_method= get_wavelet_feature ):
         """
@@ -169,11 +173,12 @@ class Lightcurve:
         """
 
         try:
-            if np.isnan(self.interp_flux[0]):
+            if self._did_interpolation == False:
                 print("No interpolated flux. Please run interpolate() on "+self.filename+"first.")
-            elif np.isnan(self.features[0]):
+            elif self._did_feat_extraction == False:
                 feats = feat_ex_method(self)
                 self.features = feats
+                self._did_feat_extraction = True
             else:
                 lc_logger.info("Features have already been extracted from "+ self.filename)
 

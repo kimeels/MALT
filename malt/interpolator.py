@@ -21,7 +21,7 @@ sns.set_palette(color_palette)
 #                          Interpolator Functions                             #
 ###############################################################################
 
-def get_gp(lightcurve, t0, obs_time, sample_size ):
+def get_gp(lightcurve, t0, obs_time, sample_size, aug_num):
     """
         Returns a Gaussian Process (george) object marginalised on the data
         in file.
@@ -262,7 +262,10 @@ def get_gp(lightcurve, t0, obs_time, sample_size ):
 
 
     xsample = np.linspace(t0,t0+obs_time,sample_size)
-    ysample = gp.sample_conditional(lightcurve.flux,xsample)
+    ysample = gp.sample_conditional(lightcurve.flux,xsample,aug_num)
+
+    if aug_num == 1:
+        ysample = np.array([ysample])
 
     return ysample
 
