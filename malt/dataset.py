@@ -3,6 +3,7 @@ from .lightcurve import Lightcurve
 from . import interpolator
 from . import feature_extraction
 from . import machine_learning
+from .diagnostic import Diagnostic
 from tqdm.autonotebook import tqdm
 from sklearn.model_selection import GridSearchCV
 import time
@@ -89,7 +90,8 @@ class Dataset:
                 self._pca = ml_params['pca']
                 self._n_components = int(ml_params['n_components'])
                 self._aug_num = int(ml_params['aug_num'])
-
+                self._test_split = float(ml_params['test_split'])
+                self._num_of_runs = int(ml_params['num_of_runs'])
 
             except IOError as io:
                 print('An error occured trying to read the configFile.')
@@ -115,6 +117,8 @@ class Dataset:
             self._pca = pca
             self._n_components = n_components
             self._aug_num = aug_num
+            self._test_split = .25
+            self._num_of_runs = 20
 
         self._did_interpolation = False
         self._did_feat_extraction = False
@@ -281,13 +285,15 @@ class Dataset:
 
         eigvecs, mn, eigvals = self.pca
 
+        #If Lightcurve is not given, will project all lightcurves in Database
+        #onto PCA components.
         if not lightcurve:
-            lcs = self.lightcurves
             all_lc_feats = np.array([lc.features for lc in tqdm(self.lightcurves,desc="Stacking features", unit="lcs")])
             shape = all_lc_feats.shape
 
             feats = all_lc_feats.reshape(shape[0]*shape[1],shape[2])
 
+        #If lightcurve is given, will only project that lightcurve onto PCA components.
         else:
             feats = lightcurve.features
 
@@ -384,6 +390,10 @@ class Dataset:
                 print("{c:12s}: {p:>2.2f}%".format(c=classes[i], p=probs[i]*100))
 
         return p,label
+
+    def run_diagnostic(self):
+        diag = Diagnostic(self)
+        return diag
 
 
     def add(self, new_lightcurve):
