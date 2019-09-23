@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The MALT API reference &#8212; MALT 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="How to install MALT" href="install.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="How to install MALT"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">MALT 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-malt-api-reference">
+<h1>The MALT API reference<a class="headerlink" href="#the-malt-api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-lightcurve-class">
+<h2>The Lightcurve class<a class="headerlink" href="#the-lightcurve-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="malt.Lightcurve">
+<em class="property">class </em><code class="sig-prename descclassname">malt.</code><code class="sig-name descname">Lightcurve</code><span class="sig-paren">(</span><em class="sig-param">filepath</em>, <em class="sig-param">interpolate=False</em>, <em class="sig-param">interp_func=&lt;function get_gp&gt;</em>, <em class="sig-param">ini_t='rand'</em>, <em class="sig-param">obs_time=0.3333333333333333</em>, <em class="sig-param">sample_size=100</em>, <em class="sig-param">obj_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Lightcurve" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="malt.Lightcurve.extract_features">
+<code class="sig-name descname">extract_features</code><span class="sig-paren">(</span><em class="sig-param">feat_ex_method=&lt;function get_wavelet_feature&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Lightcurve.extract_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts features from the given lightcurve with assigned
+feature extraction method.</p>
+<dl class="simple">
+<dt>self<span class="classifier">Lightcurve object</span></dt><dd><p>An instance of the Lightcurve class.</p>
+</dd>
+<dt>feat_ex_method: python function</dt><dd><p>Function to use for the feature extraction.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Lightcurve.interpolate">
+<code class="sig-name descname">interpolate</code><span class="sig-paren">(</span><em class="sig-param">interp_func=&lt;function get_gp&gt;</em>, <em class="sig-param">ini_t='rand'</em>, <em class="sig-param">obs_time=0.3333333333333333</em>, <em class="sig-param">sample_size=100</em>, <em class="sig-param">aug_num=1</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Lightcurve.interpolate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates the given lightcurve with assigned interpolation function</p>
+<dl class="simple">
+<dt>self: Lightcurve object</dt><dd><p>An instance of the Lightcurve class.</p>
+</dd>
+<dt>interp_func: python function</dt><dd><p>A python function that takes in a lightcurve and interpolates it.</p>
+</dd>
+<dt>ini_t: str or float</dt><dd><p>Initial time to start sampling.</p>
+</dd>
+<dt>obs_time: float</dt><dd><p>The total length of the interpolated lightcurve.</p>
+</dd>
+<dt>sample_size: int</dt><dd><p>Number of data points in interpolated lightcurve.</p>
+</dd>
+<dt>aug_num: int</dt><dd><p>Number of lightcurves to augment to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Lightcurve.loadfile">
+<code class="sig-name descname">loadfile</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Lightcurve.loadfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads file to extract time, flux, flux_err  ra_dec and class</p>
+<p>filename: path to dataset</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-dataset-class">
+<h2>The Dataset class<a class="headerlink" href="#the-dataset-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="malt.Dataset">
+<em class="property">class </em><code class="sig-prename descclassname">malt.</code><code class="sig-name descname">Dataset</code><span class="sig-paren">(</span><em class="sig-param">configFile='', feat_ex_method=&lt;function get_wavelet_feature&gt;, interpolate=True, interp_func=&lt;function get_gp&gt;, ini_t='rand', obs_time=0.3333333333333333, sample_size=100, aug_num=1, ml_method=&lt;class 'malt.machine_learning.RFclassifier'&gt;, hyperparams={'criterion': ['gini', 'entropy'], 'n_estimators': array([70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86,        87, 88, 89])}, n_jobs=-1, pca=True, n_components=20</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="malt.Dataset.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">new_lightcurve</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.add" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Adds new lightcurve to the Dataset then retrains Dataset.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+<dt>lightcurve<span class="classifier">Lightcurve object</span></dt><dd><p>Lightcurve object to add to dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.extract_features">
+<code class="sig-name descname">extract_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.extract_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts features from all the lightcurves in the given dataset with
+assigned feature extraction method.</p>
+<dl class="simple">
+<dt>self<span class="classifier">Dataset object</span></dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.get_pca">
+<code class="sig-name descname">get_pca</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.get_pca" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs PCA decomposition of a feature array X.</p>
+<dl class="simple">
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.interpolate">
+<code class="sig-name descname">interpolate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.interpolate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates all the lightcurves in the given dataset with
+assigned interpolation function.</p>
+<dl class="simple">
+<dt>self<span class="classifier">Dataset object</span></dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.load_from_save">
+<em class="property">classmethod </em><code class="sig-name descname">load_from_save</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.load_from_save" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Returns a saved Dataset instance using pickle</p>
+</div></blockquote>
+<dl class="simple">
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+<dt>filename: str</dt><dd><p>filename under which the Dataset instance was saved.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.populate">
+<code class="sig-name descname">populate</code><span class="sig-paren">(</span><em class="sig-param">filepaths</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.populate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialises an instance of the Dataset class.</p>
+<dl class="simple">
+<dt>self<span class="classifier">Database object</span></dt><dd><p>An instance of the Database class.</p>
+</dd>
+<dt>filepaths: list</dt><dd><p>List containing the paths to the data files.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">lightcurve</em>, <em class="sig-param">show_prob=False</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.predict" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Predicts the type of given lightcurve object using classifier trained
+on Dataset.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>self<span class="classifier">Dataset object</span></dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+<dt>lightcurve<span class="classifier">Lightcurve object</span></dt><dd><p>Lightcurve object for which to predict</p>
+</dd>
+<dt>show_prob<span class="classifier">boolean.</span></dt><dd><p>If True will print full output from predict_proba()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.project_pca">
+<code class="sig-name descname">project_pca</code><span class="sig-paren">(</span><em class="sig-param">lightcurve=None</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.project_pca" title="Permalink to this definition">¶</a></dt>
+<dd><p>Projects self.features onto  calculated PCA axis from self.pca</p>
+<dl class="simple">
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.run_diagnostic">
+<code class="sig-name descname">run_diagnostic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.run_diagnostic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the Diagnostic test which trains n classifiers on different subsets
+of the Dataset to test how well it can classify objects.</p>
+<dl class="simple">
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">filename='saved_dataset'</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.save" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Saves a Dataset instance using a pickle dump</p>
+</div></blockquote>
+<dl class="simple">
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+<dt>filename: str</dt><dd><p>filename under which to store the Dataset instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param">verbose=1</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.train" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Trains a ML algorithm on the Dataset with the parameters specified on
+initialisation.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>self<span class="classifier">Dataset object</span></dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+</dl>
+<p>verbose : How much information to print out.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="malt.Dataset.types">
+<code class="sig-name descname">types</code><span class="sig-paren">(</span><em class="sig-param">show_aug_num=False</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints out the counts of each object type stored in the dataset.</p>
+<dl class="simple">
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
+Lightcurve class.</p>
+</dd>
+<dt>show_aug_num: boolean</dt><dd><p>Use augmented lightcurve when counting type numbers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-malt.interpolator">
+<span id="malt-interpolator"></span><h2>MALT interpolator<a class="headerlink" href="#module-malt.interpolator" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="malt.interpolator.get_gp">
+<code class="sig-prename descclassname">malt.interpolator.</code><code class="sig-name descname">get_gp</code><span class="sig-paren">(</span><em class="sig-param">lightcurve</em>, <em class="sig-param">t0</em>, <em class="sig-param">obs_time</em>, <em class="sig-param">sample_size</em>, <em class="sig-param">aug_num</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.interpolator.get_gp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Gaussian Process (george) object marginalised on the data
+in file.</p>
+<dl class="simple">
+<dt>lightcurve: Lightcurve object</dt><dd><p>An instance of the Lightcurve class.</p>
+</dd>
+<dt>t0: float</dt><dd><p>Initial time to start sampling.</p>
+</dd>
+<dt>obs_time: float</dt><dd><p>The total length of the interpolated lightcurve.</p>
+</dd>
+<dt>sample_size: int</dt><dd><p>Number of data points in interpolated lightcurve.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-malt.feature_extraction">
+<span id="malt-feature-extraction"></span><h2>MALT feature extraction<a class="headerlink" href="#module-malt.feature_extraction" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="malt.feature_extraction.get_wavelet_feature">
+<code class="sig-prename descclassname">malt.feature_extraction.</code><code class="sig-name descname">get_wavelet_feature</code><span class="sig-paren">(</span><em class="sig-param">lightcurve</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.feature_extraction.get_wavelet_feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns wavelet coefficients for a given lightcurve object.</p>
+<dl class="simple">
+<dt>lightcurve<span class="classifier">Lightcurve object</span></dt><dd><p>An instance of the Lightcurve class</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-malt.machine_learning">
+<span id="malt-machine-learning"></span><h2>MALT machine learning<a class="headerlink" href="#module-malt.machine_learning" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="malt.machine_learning.RFclassifier">
+<em class="property">class </em><code class="sig-prename descclassname">malt.machine_learning.</code><code class="sig-name descname">RFclassifier</code><span class="sig-paren">(</span><em class="sig-param">n_estimators='warn'</em>, <em class="sig-param">criterion='gini'</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.machine_learning.RFclassifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The MALT API reference</a><ul>
+<li><a class="reference internal" href="#the-lightcurve-class">The Lightcurve class</a></li>
+<li><a class="reference internal" href="#the-dataset-class">The Dataset class</a></li>
+<li><a class="reference internal" href="#module-malt.interpolator">MALT interpolator</a></li>
+<li><a class="reference internal" href="#module-malt.feature_extraction">MALT feature extraction</a></li>
+<li><a class="reference internal" href="#module-malt.machine_learning">MALT machine learning</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">How to install MALT</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="How to install MALT"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">MALT 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Kimeel.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

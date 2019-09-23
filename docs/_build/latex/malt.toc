@@ -1,0 +1,10 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}How to install MALT}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}The MALT API reference}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}The Lightcurve class}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}The Dataset class}{3}{section.2.2}
+\contentsline {section}{\numberline {2.3}MALT interpolator}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}MALT feature extraction}{5}{section.2.4}
+\contentsline {section}{\numberline {2.5}MALT machine learning}{5}{section.2.5}
+\contentsline {chapter}{Python Module Index}{7}{section*.23}
+\contentsline {chapter}{Index}{9}{section*.24}

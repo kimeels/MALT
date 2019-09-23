@@ -12,6 +12,16 @@ import itertools
 class Diagnostic:
 
     def __init__(self, dataset):
+        """
+        Initialises an instance of the Diagnostic class.
+
+        Params
+        ------
+        self: Diagnostic object
+            An instance of the Diagnostic class.
+        dataset: Database object
+            An instance of the Database class.
+        """
 
         self._dataset = dataset
 
@@ -30,7 +40,16 @@ class Diagnostic:
         self.run_diagnostic()
 
     def run_diagnostic(self):
+        """
+        Runs the Diagnostic test which trains n classifiers on different subsets
+        of the Dataset to test how well it can classify objects. 
 
+        Params
+        ------
+        self: Diagnostic object
+            An instance of the Diagnostic class.
+
+        """
         dataset = self._dataset
         num_of_runs = self._num_of_runs
         test_split = self._test_split
@@ -70,8 +89,23 @@ class Diagnostic:
     def plot_confusion_matrix(self, cm, normalize=False, title = None, save = False,
                               name = 'conf_matrix.pdf'):
         """
-        This function prints and plots the confusion matrix.
-        Normalization can be applied by setting `normalize=True`.
+        This function plots the confusion matrix.
+
+        Params
+        ------
+        self: Dataset object
+            An instance of the Dataset class containing instances of the
+            Lightcurve class.
+        cm: 2d numpy array
+            The confusion matrix
+        normalize: boolean
+            Option to normalize the confusion matrix
+        title: str
+            Title of plot
+        save: boolean
+            Option to save plot
+        name: str
+            Name of saved plot
         """
 
         acc = np.trace(cm)/np.sum(cm)
@@ -129,7 +163,24 @@ class Diagnostic:
         if save != False:
             pl.savefig(name,bbox_inches="tight")
 
-    def plot_results(self, save = False, save_root = './'):
+    def plot_results(self, normalize=True, save = False, save_root = './'):
+        """
+        This function plots the results of the diagnostic run. It plots the
+        confusion matrices with the maximum, minimum and average overall accuracies.
+
+        Params
+        ------
+        self: Dataset object
+            An instance of the Dataset class containing instances of the
+            Lightcurve class.
+        normalize: boolean
+            Option to normalize the confusion matrix.
+        save: boolean
+            Option to save plot.
+        save_root: str
+            file path for saved plots.
+        """
+
         cnfs = np.array(self.conf_matrices)
 
         traces = np.trace(cnfs,axis1=1, axis2=2)
@@ -145,17 +196,17 @@ class Diagnostic:
         names = self.types
 
         self.plot_confusion_matrix(cnfs[np.where(accs == np.min(accs))[0][0]],
-                                   normalize=True,
+                                   normalize=normalize,
                                    title= title_min,
-                                   save=True, name=save_root+'Min_conf_matrix.pdf')
+                                   save=save, name=save_root+'Min_conf_matrix.pdf')
 
         self.plot_confusion_matrix(cnfs[np.where(accs == np.max(accs))[0][0]],
-                                   normalize = True, title = title_max,
-                                   save = True, name=save_root+'Max_conf_matrix.pdf')
+                                   normalize = normalize, title = title_max,
+                                   save = save, name=save_root+'Max_conf_matrix.pdf')
 
 
-        self.plot_confusion_matrix(np.sum(cnfs,axis=0), normalize=True,
-                                   title= title_avg, save=True,
+        self.plot_confusion_matrix(np.sum(cnfs,axis=0), normalize=normalize,
+                                   title= title_avg, save=save,
                                    name=save_root+'Average_conf_matrix.pdf')
 
 
@@ -225,7 +276,13 @@ class Diagnostic:
         self: Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
+        lcs: list
+            List of Lightcurve objects.
 
+        Returns
+        --------
+        pca: list
+            List containing arrays from PCA calculation.
         """
         n_components = self._dataset._n_components
 
@@ -251,14 +308,20 @@ class Diagnostic:
 
     def _project_pca(self,pca,lcs):
         """
-        Projects self.features onto  calculated PCA axis from self.pca
+        Projects self.features onto calculated PCA axis from self.pca
 
         Parameters
         ----------
         self: Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
+        pca: list
+            Output from self.pca
 
+        Returns
+        --------
+        proj_feat: array
+            Array of projected features.
         """
 
         eigvecs, mn, eigvals = pca

@@ -1,0 +1,63 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter A
+  \item \spxentry{add()}\spxextra{malt.Dataset method}, \hyperpage{3}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{Dataset}\spxextra{class in malt}, \hyperpage{3}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry{extract\_features()}\spxextra{malt.Dataset method}, \hyperpage{4}
+  \item \spxentry{extract\_features()}\spxextra{malt.Lightcurve method}, \hyperpage{3}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{get\_gp()}\spxextra{in module malt.interpolator}, \hyperpage{5}
+  \item \spxentry{get\_pca()}\spxextra{malt.Dataset method}, \hyperpage{4}
+  \item \spxentry{get\_wavelet\_feature()}\spxextra{in module malt.feature\_extraction}, 
+		\hyperpage{5}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{interpolate()}\spxextra{malt.Dataset method}, \hyperpage{4}
+  \item \spxentry{interpolate()}\spxextra{malt.Lightcurve method}, \hyperpage{3}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{Lightcurve}\spxextra{class in malt}, \hyperpage{3}
+  \item \spxentry{load\_from\_save()}\spxextra{malt.Dataset class method}, \hyperpage{4}
+  \item \spxentry{loadfile()}\spxextra{malt.Lightcurve method}, \hyperpage{3}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{malt.feature\_extraction}\spxextra{module}, \hyperpage{5}
+  \item \spxentry{malt.interpolator}\spxextra{module}, \hyperpage{5}
+  \item \spxentry{malt.machine\_learning}\spxextra{module}, \hyperpage{5}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{populate()}\spxextra{malt.Dataset method}, \hyperpage{4}
+  \item \spxentry{predict()}\spxextra{malt.Dataset method}, \hyperpage{4}
+  \item \spxentry{project\_pca()}\spxextra{malt.Dataset method}, \hyperpage{4}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{RFclassifier}\spxextra{class in malt.machine\_learning}, \hyperpage{5}
+  \item \spxentry{run\_diagnostic()}\spxextra{malt.Dataset method}, \hyperpage{4}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{save()}\spxextra{malt.Dataset method}, \hyperpage{4}
+
+  \indexspace
+  \bigletter T
+  \item \spxentry{train()}\spxextra{malt.Dataset method}, \hyperpage{4}
+  \item \spxentry{types()}\spxextra{malt.Dataset method}, \hyperpage{4}
+
+\end{sphinxtheindex}

@@ -121,7 +121,7 @@ class Lightcurve:
 
             Param
             ------
-            self : Lightcurve object
+            self: Lightcurve object
                 An instance of the Lightcurve class.
             interp_func: python function
                 A python function that takes in a lightcurve and interpolates it.

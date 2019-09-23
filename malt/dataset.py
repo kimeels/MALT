@@ -25,7 +25,7 @@ class Dataset:
         """
             Initialises an instance of the Dataset class.
 
-            Param
+            Params
             ------
             self: Database object
                 An instance of the Database class.
@@ -225,9 +225,9 @@ class Dataset:
 
             Param
             ------
-            self : Lightcurve object
-                An instance of the Lightcurve class.
-
+            self : Dataset object
+                An instance of the Dataset class containing instances of the
+                Lightcurve class.
         """
         feat_ex_method = self._feat_ex_method
 
@@ -310,7 +310,7 @@ class Dataset:
         self : Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
-        verbose: How much information to print out.
+        verbose : How much information to print out.
 
         """
 
@@ -355,12 +355,12 @@ class Dataset:
          on Dataset.
         Params:
         -------
-        self: Dataset object
+        self : Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
-        lightcurve: Lightcurve object
+        lightcurve : Lightcurve object
             Lightcurve object for which to predict
-        show_prob: boolean.
+        show_prob : boolean.
             If True will print full output from predict_proba()
         """
 
@@ -392,6 +392,16 @@ class Dataset:
         return p,label
 
     def run_diagnostic(self):
+        """
+        Runs the Diagnostic test which trains n classifiers on different subsets
+        of the Dataset to test how well it can classify objects.
+
+        Params
+        ------
+        self: Dataset object
+            An instance of the Dataset class containing instances of the
+            Lightcurve class.
+        """
         diag = Diagnostic(self)
         return diag
 
@@ -404,7 +414,7 @@ class Dataset:
         self: Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
-        lightcurve: Lightcurve object
+        lightcurve : Lightcurve object
             Lightcurve object to add to dataset.
         """
         self.lightcurves.append(new_lightcurve)

@@ -1,0 +1,23 @@
+\indexentry{Lightcurve (class in malt)@\spxentry{Lightcurve}\spxextra{class in malt}|hyperpage}{3}
+\indexentry{extract\_features() (malt.Lightcurve method)@\spxentry{extract\_features()}\spxextra{malt.Lightcurve method}|hyperpage}{3}
+\indexentry{interpolate() (malt.Lightcurve method)@\spxentry{interpolate()}\spxextra{malt.Lightcurve method}|hyperpage}{3}
+\indexentry{loadfile() (malt.Lightcurve method)@\spxentry{loadfile()}\spxextra{malt.Lightcurve method}|hyperpage}{3}
+\indexentry{Dataset (class in malt)@\spxentry{Dataset}\spxextra{class in malt}|hyperpage}{3}
+\indexentry{add() (malt.Dataset method)@\spxentry{add()}\spxextra{malt.Dataset method}|hyperpage}{3}
+\indexentry{extract\_features() (malt.Dataset method)@\spxentry{extract\_features()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{get\_pca() (malt.Dataset method)@\spxentry{get\_pca()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{interpolate() (malt.Dataset method)@\spxentry{interpolate()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{load\_from\_save() (malt.Dataset class method)@\spxentry{load\_from\_save()}\spxextra{malt.Dataset class method}|hyperpage}{4}
+\indexentry{populate() (malt.Dataset method)@\spxentry{populate()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{predict() (malt.Dataset method)@\spxentry{predict()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{project\_pca() (malt.Dataset method)@\spxentry{project\_pca()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{run\_diagnostic() (malt.Dataset method)@\spxentry{run\_diagnostic()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{save() (malt.Dataset method)@\spxentry{save()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{train() (malt.Dataset method)@\spxentry{train()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{types() (malt.Dataset method)@\spxentry{types()}\spxextra{malt.Dataset method}|hyperpage}{4}
+\indexentry{malt.interpolator (module)@\spxentry{malt.interpolator}\spxextra{module}|hyperpage}{5}
+\indexentry{get\_gp() (in module malt.interpolator)@\spxentry{get\_gp()}\spxextra{in module malt.interpolator}|hyperpage}{5}
+\indexentry{malt.feature\_extraction (module)@\spxentry{malt.feature\_extraction}\spxextra{module}|hyperpage}{5}
+\indexentry{get\_wavelet\_feature() (in module malt.feature\_extraction)@\spxentry{get\_wavelet\_feature()}\spxextra{in module malt.feature\_extraction}|hyperpage}{5}
+\indexentry{malt.machine\_learning (module)@\spxentry{malt.machine\_learning}\spxextra{module}|hyperpage}{5}
+\indexentry{RFclassifier (class in malt.machine\_learning)@\spxentry{RFclassifier}\spxextra{class in malt.machine\_learning}|hyperpage}{5}

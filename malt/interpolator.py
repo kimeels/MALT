@@ -28,7 +28,7 @@ def get_gp(lightcurve, t0, obs_time, sample_size, aug_num):
 
         Param
         ------
-        lightcurve : Lightcurve object
+        lightcurve: Lightcurve object
             An instance of the Lightcurve class.
         t0: float
             Initial time to start sampling.
