@@ -11,7 +11,7 @@ class Lightcurve:
 
             Param
             ------
-            self : Lightcurve object
+            self: Lightcurve object
                 An instance of the Lightcurve class.
             filepath: str
                 The path to a data file.
@@ -57,38 +57,7 @@ class Lightcurve:
             except Exception as e:
                 print("An error has occured while performing interpolation")
                 lc_logger.exception("Exception occurred while performing interpolation")
-
-
-
-
-
-
-
-    # def loadfile(self, filename):
-    #     """
-    #         Loads the 2 different types of datasets
-    #
-    #         Param
-    #         ------
-    #
-    #         filename: path to dataset
-    #
-    #     """
-    #
-    #     if "GBI" in filename:
-    #         data = np.loadtxt(filename)
-    #         x,y,err = data[:,0],data[:,3],data[:,6]
-    #         y_eq_minus1 = np.where(y == -1)
-    #         y = np.delete(y,y_eq_minus1)
-    #         x = np.delete(x,y_eq_minus1)
-    #         err =  np.delete(err,y_eq_minus1)
-    #
-    #     else:
-    #         data = np.loadtxt(filename)
-    #         x,y,err = data[:,0],data[:,1],data[:,2]
-    #
-    #     return x,y,err
-
+                
 
     def loadfile(self, filename):
         """
@@ -165,7 +134,7 @@ class Lightcurve:
 
             Param
             ------
-            self : Lightcurve object
+            self: Lightcurve object
                 An instance of the Lightcurve class.
             feat_ex_method: python function
                 Function to use for the feature extraction.

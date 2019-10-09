@@ -130,7 +130,7 @@ class Dataset:
 
             Param
             ------
-            self : Database object
+            self: Database object
                 An instance of the Database class.
             filepaths: list
                 List containing the paths to the data files.
@@ -198,7 +198,7 @@ class Dataset:
 
             Param
             ------
-            self : Dataset object
+            self: Dataset object
                 An instance of the Dataset class containing instances of the
                 Lightcurve class.
 
@@ -225,7 +225,7 @@ class Dataset:
 
             Param
             ------
-            self : Dataset object
+            self: Dataset object
                 An instance of the Dataset class containing instances of the
                 Lightcurve class.
         """
@@ -307,10 +307,10 @@ class Dataset:
          initialisation.
         Params:
         -------
-        self : Dataset object
+        self: Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
-        verbose : How much information to print out.
+        verbose: How much information to print out.
 
         """
 
@@ -355,12 +355,12 @@ class Dataset:
          on Dataset.
         Params:
         -------
-        self : Dataset object
+        self: Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
-        lightcurve : Lightcurve object
+        lightcurve: Lightcurve object
             Lightcurve object for which to predict
-        show_prob : boolean.
+        show_prob: boolean.
             If True will print full output from predict_proba()
         """
 
@@ -414,7 +414,7 @@ class Dataset:
         self: Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
-        lightcurve : Lightcurve object
+        lightcurve: Lightcurve object
             Lightcurve object to add to dataset.
         """
         self.lightcurves.append(new_lightcurve)

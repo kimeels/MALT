@@ -19,7 +19,7 @@ def get_wavelet_feature(lightcurve):
 
         Param
         ------
-        lightcurve : Lightcurve object
+        lightcurve: Lightcurve object
             An instance of the Lightcurve class
 
     """
@@ -37,6 +37,6 @@ def get_wavelet_feature(lightcurve):
 
     lc_logger.info("Func get_wavelet_feature() extracted features from lightcurve "
                     + lightcurve.filename)
-                    
+
     feats = np.array(feats)
     return feats

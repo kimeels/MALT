@@ -42,7 +42,7 @@ class Diagnostic:
     def run_diagnostic(self):
         """
         Runs the Diagnostic test which trains n classifiers on different subsets
-        of the Dataset to test how well it can classify objects. 
+        of the Dataset to test how well it can classify objects.
 
         Params
         ------
@@ -217,7 +217,7 @@ class Diagnostic:
          initialisation.
         Params:
         -------
-        self : Dataset object
+        self: Dataset object
             An instance of the Dataset class containing instances of the
             Lightcurve class.
         verbose: How much information to print out.

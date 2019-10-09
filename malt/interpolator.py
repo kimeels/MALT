@@ -87,9 +87,9 @@ def get_gp(lightcurve, t0, obs_time, sample_size, aug_num):
                 Params
                 ------
 
-                x   : time axis data
-                y   : Flux axis data
-                err : error on the flux measurements
+                x: time axis data
+                y: Flux axis data
+                err: error on the flux measurements
             """
             clipped_fluxes = get_sigma_clipped_fluxes(y)
             background = np.ma.median(clipped_fluxes)
