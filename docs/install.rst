@@ -1,7 +1,7 @@
 How to install MALT
 ========================
 
-First clone the git repo and install virtualenv::
+First clone the git repo and install virtualenv if not already installed::
 
   git clone https://github.com/kimeels/MALT.git
 
@@ -17,5 +17,5 @@ Change directories into MALT and create a virtual environment::
 Start the virtual env and install the necessary packages using the requirements file::
 
   source malt_env/bin/activate
-  
+
   pip3 install -r requirements.txt

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MALT: Machine Learning for Transients &mdash; MALT 1.0 documentation</title>
+  <title>Example Notebooks &mdash; MALT 1.0 documentation</title>
   
 
   
@@ -35,7 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How to install MALT" href="install.html" /> 
+    <link rel="next" title="The MALT API reference" href="api.html" />
+    <link rel="prev" title="How to install MALT" href="install.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -49,7 +50,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> MALT
+            <a href="index.html" class="icon icon-home"> MALT
           
 
           
@@ -80,9 +81,13 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">How to install MALT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example.html">Example Notebooks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example Notebooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#lightcurve-example">Lightcurve Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dataset-example">Dataset Example</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">The MALT API reference</a></li>
 </ul>
 
@@ -98,7 +103,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">MALT</a>
+          <a href="index.html">MALT</a>
         
       </nav>
 
@@ -127,15 +132,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li><strong>MALT</strong>: Machine Learning for Transients</li>
+      <li>Example Notebooks</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/example.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -148,36 +153,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="malt-machine-learning-for-transients">
-<h1><strong>MALT</strong>: Machine Learning for Transients<a class="headerlink" href="#malt-machine-learning-for-transients" title="Permalink to this headline">¶</a></h1>
-<p>MALT is a classification pipeline based on the paper “Classification of
-Multiwavelength Transients with Machine Learning” by
-<a class="reference external" href="https://arxiv.org/abs/1811.08446">Sooknunan et al. (2018)</a>. It is a framework
-which allows the user to classify time series data. The user is free to choose
-the interpolation technique, feature extraction method, and the machine learning
-classifier to use.</p>
-<p>The default pipeline is shown below. It uses Gaussian processes
-to interpolate the data, a wavelet feature extraction method and a random forest
-classifier.</p>
-<a class="reference internal image-reference" href="_images/pipeline.png"><img alt="_images/pipeline.png" class="align-center" src="_images/pipeline.png" style="width: 268.79999999999995px; height: 371.0px;" /></a>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">How to install MALT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example.html">Example Notebooks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="example.html#lightcurve-example">Lightcurve Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example.html#dataset-example">Dataset Example</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">The MALT API reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#the-lightcurve-class">The Lightcurve class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#the-dataset-class">The Dataset class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#module-malt.interpolator">MALT interpolator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#module-malt.feature_extraction">MALT feature extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#module-malt.machine_learning">MALT machine learning</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="example-notebooks">
+<h1>Example Notebooks<a class="headerlink" href="#example-notebooks" title="Permalink to this headline">¶</a></h1>
+<p>Install Jupyter Notebooks/Labs if not already installed.</p>
+<div class="section" id="lightcurve-example">
+<h2>Lightcurve Example<a class="headerlink" href="#lightcurve-example" title="Permalink to this headline">¶</a></h2>
+<p>Change directories into MALT and start the MALT_lightcurve_class_example notebook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">MALT</span>
+<span class="n">jupyter</span> <span class="n">notebook</span> <span class="n">MALT_lightcurve_class_example</span> <span class="n">notebook</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dataset-example">
+<h2>Dataset Example<a class="headerlink" href="#dataset-example" title="Permalink to this headline">¶</a></h2>
+<p>Change directories into MALT and start the MALT_dataset_class_example notebook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">MALT</span>
+<span class="n">jupyter</span> <span class="n">notebook</span> <span class="n">MALT_dataset_class_example</span> <span class="n">notebook</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -189,8 +182,10 @@ classifier.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="install.html" class="btn btn-neutral float-right" title="How to install MALT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="api.html" class="btn btn-neutral float-right" title="The MALT API reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="How to install MALT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

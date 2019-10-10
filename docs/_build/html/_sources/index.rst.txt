@@ -5,11 +5,14 @@
 
 **MALT**: Machine Learning for Transients
 ******************************************
-MALT is a classification pipeline based on the paper by
+MALT is a classification pipeline based on the paper "Classification of
+Multiwavelength Transients with Machine Learning\" by
 `Sooknunan et al. (2018) <https://arxiv.org/abs/1811.08446>`_. It is a framework
 which allows the user to classify time series data. The user is free to choose
 the interpolation technique, feature extraction method, and the machine learning
-classifier to use. The default pipeline is shown below. It uses Gaussian processes
+classifier to use.
+
+The default pipeline is shown below. It uses Gaussian processes
 to interpolate the data, a wavelet feature extraction method and a random forest
 classifier.
 
@@ -22,4 +25,5 @@ classifier.
    :caption: Contents:
 
    install
+   example
    api

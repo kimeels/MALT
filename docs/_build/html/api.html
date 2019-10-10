@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="How to install MALT" href="install.html" /> 
+    <link rel="prev" title="Example Notebooks" href="example.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,6 +82,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">How to install MALT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Notebooks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The MALT API reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#the-lightcurve-class">The Lightcurve class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-dataset-class">The Dataset class</a></li>
@@ -167,7 +168,7 @@
 <dd><p>Extracts features from the given lightcurve with assigned
 feature extraction method.</p>
 <dl class="simple">
-<dt>self<span class="classifier">Lightcurve object</span></dt><dd><p>An instance of the Lightcurve class.</p>
+<dt>self: Lightcurve object</dt><dd><p>An instance of the Lightcurve class.</p>
 </dd>
 <dt>feat_ex_method: python function</dt><dd><p>Function to use for the feature extraction.</p>
 </dd>
@@ -219,7 +220,7 @@ feature extraction method.</p>
 <dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
 Lightcurve class.</p>
 </dd>
-<dt>lightcurve<span class="classifier">Lightcurve object</span></dt><dd><p>Lightcurve object to add to dataset.</p>
+<dt>lightcurve: Lightcurve object</dt><dd><p>Lightcurve object to add to dataset.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -230,7 +231,7 @@ Lightcurve class.</p>
 <dd><p>Extracts features from all the lightcurves in the given dataset with
 assigned feature extraction method.</p>
 <dl class="simple">
-<dt>self<span class="classifier">Dataset object</span></dt><dd><p>An instance of the Dataset class containing instances of the
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
 Lightcurve class.</p>
 </dd>
 </dl>
@@ -253,7 +254,7 @@ Lightcurve class.</p>
 <dd><p>Interpolates all the lightcurves in the given dataset with
 assigned interpolation function.</p>
 <dl class="simple">
-<dt>self<span class="classifier">Dataset object</span></dt><dd><p>An instance of the Dataset class containing instances of the
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
 Lightcurve class.</p>
 </dd>
 </dl>
@@ -279,7 +280,7 @@ Lightcurve class.</p>
 <code class="sig-name descname">populate</code><span class="sig-paren">(</span><em class="sig-param">filepaths</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.Dataset.populate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialises an instance of the Dataset class.</p>
 <dl class="simple">
-<dt>self<span class="classifier">Database object</span></dt><dd><p>An instance of the Database class.</p>
+<dt>self: Database object</dt><dd><p>An instance of the Database class.</p>
 </dd>
 <dt>filepaths: list</dt><dd><p>List containing the paths to the data files.</p>
 </dd>
@@ -294,12 +295,12 @@ Lightcurve class.</p>
 on Dataset.</p>
 </div></blockquote>
 <dl class="simple">
-<dt>self<span class="classifier">Dataset object</span></dt><dd><p>An instance of the Dataset class containing instances of the
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
 Lightcurve class.</p>
 </dd>
-<dt>lightcurve<span class="classifier">Lightcurve object</span></dt><dd><p>Lightcurve object for which to predict</p>
+<dt>lightcurve: Lightcurve object</dt><dd><p>Lightcurve object for which to predict</p>
 </dd>
-<dt>show_prob<span class="classifier">boolean.</span></dt><dd><p>If True will print full output from predict_proba()</p>
+<dt>show_prob: boolean.</dt><dd><p>If True will print full output from predict_proba()</p>
 </dd>
 </dl>
 </dd></dl>
@@ -350,11 +351,11 @@ Lightcurve class.</p>
 initialisation.</p>
 </div></blockquote>
 <dl class="simple">
-<dt>self<span class="classifier">Dataset object</span></dt><dd><p>An instance of the Dataset class containing instances of the
+<dt>self: Dataset object</dt><dd><p>An instance of the Dataset class containing instances of the
 Lightcurve class.</p>
 </dd>
 </dl>
-<p>verbose : How much information to print out.</p>
+<p>verbose: How much information to print out.</p>
 </dd></dl>
 
 <dl class="method">
@@ -400,7 +401,7 @@ in file.</p>
 <code class="sig-prename descclassname">malt.feature_extraction.</code><code class="sig-name descname">get_wavelet_feature</code><span class="sig-paren">(</span><em class="sig-param">lightcurve</em><span class="sig-paren">)</span><a class="headerlink" href="#malt.feature_extraction.get_wavelet_feature" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns wavelet coefficients for a given lightcurve object.</p>
 <dl class="simple">
-<dt>lightcurve<span class="classifier">Lightcurve object</span></dt><dd><p>An instance of the Lightcurve class</p>
+<dt>lightcurve: Lightcurve object</dt><dd><p>An instance of the Lightcurve class</p>
 </dd>
 </dl>
 </dd></dl>
@@ -425,7 +426,7 @@ in file.</p>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="install.html" class="btn btn-neutral float-left" title="How to install MALT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="example.html" class="btn btn-neutral float-left" title="Example Notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
