@@ -1,9 +1,9 @@
 import logging
 
-lc_logger = logging.getLogger('lightcurve_logger')
+lc_logger = logging.getLogger('dataset_logger')
 lc_logger.setLevel(logging.DEBUG)
 # Create handlers
-f_handler = logging.FileHandler('lightcurve.log')
+f_handler = logging.FileHandler('dataset.log')
 f_handler.setLevel(logging.DEBUG)
 
 # Create formatters and add it to handlers
